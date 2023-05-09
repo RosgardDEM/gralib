@@ -1,8 +1,8 @@
-COMPOSE = docker-compose
+COMPOSE = docker-compose -f docker/compose.yml
+ARGS = $(shell echo $(MAKECMDGOALS) | sed 's!^.*$@!!')
 
 up:; @$(COMPOSE) up -d
 down:; @$(COMPOSE) down
-down-v:; @$(COMPOSE) down -v
 
-sh:; @$(COMPOSE) exec gitea sh
-logs:; @$(COMPOSE) logs -f
+sh:; @$(COMPOSE) exec $(ARGS) sh
+logs:; @$(COMPOSE) logs -f $(ARGS)

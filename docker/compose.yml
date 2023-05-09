@@ -39,10 +39,10 @@ services:
       - gitea:/data
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      - ./gitea/templates:/data/gitea/templates
-      - ./gitea/public:/data/gitea/public
-      - ./gitea/conf:/data/gitea/conf
-      - ./gitea/img:/data/gitea/conf
+      - ../gitea/templates:/data/gitea/templates
+      - ../gitea/public:/data/gitea/public
+      - ../gitea/conf:/data/gitea/conf
+      - ../gitea/img:/data/gitea/conf
     ports:
       - '3000:3000'
       - '22:22'
