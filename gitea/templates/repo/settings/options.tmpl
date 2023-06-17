@@ -28,6 +28,15 @@
 					</div>
 				</div>
 				{{if not .Repository.IsFork}}
+				    {{if .IsAdmin}}
+                    <div class="inline field">
+                        <label>{{.locale.Tr "repo.visibility"}}</label>
+                        <div class="ui checkbox">
+                            <input name="private" type="checkbox" {{if .Repository.IsPrivate}}checked{{end}}>
+                            <label>{{.locale.Tr "repo.visibility_helper" | Safe}} {{if .Repository.NumForks}}<span class="text red">{{.locale.Tr "repo.visibility_fork_helper"}}</span>{{end}}</label>
+                        </div>
+                    </div>
+                    {{end}}
 					<div class="inline field" hidden>
 						<label>{{.locale.Tr "repo.visibility"}}</label>
 						<div class="ui checkbox">
